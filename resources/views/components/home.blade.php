@@ -6,7 +6,12 @@
    <div>
     <h1>Home page</h1>
     
-  
+  @if (session('success'))
+    <div id="success-message" style="background-color: #d4edda; color: #155724; padding: 15px; border: 1px solid #c3e6cb; border-radius: 5px; margin-bottom: 20px;">
+        {{ session('success') }}
+    </div>
+@endif
+
     <div>
        @foreach ($candidates as $candidate)
        <a href="{{route('candidate.show',$candidate)}}">

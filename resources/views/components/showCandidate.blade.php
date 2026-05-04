@@ -13,6 +13,7 @@
         <p><strong>Nation:</strong> {{ $candidate->nation }}</p>
         <p><strong>Bio:</strong> {{ $candidate->bio }}</p>
     </div>
+    <input type="text" value="{{$candidate->id}}">
     <input type="submit" value="vote">
 </form>
 @endsection

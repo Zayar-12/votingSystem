@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,13 +14,15 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-Route::post('/login', )->name('login');
+Route::post('/login',[AuthController::class,'login'] )->name('login');
 
 Route::get('/register', function () {
     return view('auth.register'); // မင်းမှာ auth/register.blade.php ရှိရမယ်
 })->name('register');
 
-Route::get('/logout')->name('logout');
+Route::post('/register',[AuthController::class,'register'] )->name('register');
+
+Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 
 
 Route::get('/home',[ CandidateController::class,'index'])->name('home');
