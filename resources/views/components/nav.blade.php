@@ -11,7 +11,7 @@
 
             @auth
               
-                <span>Hello, {{ Auth::user()->name }}</span>
+                <a href="{{route('profile')}}">Hello, {{ Auth::user()->name }}</a>
 
                 <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                     @csrf

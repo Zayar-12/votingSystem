@@ -23,6 +23,9 @@ Route::get('/register', function () {
 Route::post('/register',[AuthController::class,'register'] )->name('register');
 
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+Route::get('/profile' ,function(){
+    return view('components.profile');
+})->name('profile');
 
 
 Route::get('/home',[ CandidateController::class,'index'])->name('home');
