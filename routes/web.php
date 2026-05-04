@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,6 +27,8 @@ Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 Route::get('/profile' ,function(){
     return view('components.profile');
 })->name('profile');
+
+Route::post('/profilePhoto',[UserController::class,'profilePhotoUpload'])->name('ProfilePhoto');
 
 
 Route::get('/home',[ CandidateController::class,'index'])->name('home');
