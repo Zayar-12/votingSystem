@@ -12,22 +12,20 @@
     </div>
 @endif
 
-    <div>
+    {{-- <div>
        @foreach ($candidates as $candidate)
        <a href="{{route('candidate.show',$candidate)}}">
          <div>
             <h1>Name:{{$candidate->name}}</h1>
         <p>Age:{{$candidate->age}}</p>
-         <p>Age:{{$candidate->height}}</p>
-          <p>Age:{{$candidate->hobby}}</p>
-          <p>Age:{{$candidate->nation}}</p>
-            <p>Age:{{$candidate->bio}}</p>   
+       
          </div>
        </a>
         
   <hr>
     @endforeach
-   </div>
+   </div> --}}
+   <livewire:candidate-search/>
  
    </div>
 @endsection

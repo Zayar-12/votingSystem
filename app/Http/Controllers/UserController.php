@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\settings;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,5 +23,15 @@ class UserController extends Controller
             $user->save();
             return back()->with('success', 'Image uploaded successfully!');
           }
+    }
+
+    public function index(){
+      $status=settings::where('key','status')->first();
+
+      if(!$status || $status->value =='close'){
+        return view('components.votingclose');
+      }
+
+      return view('welcome');
     }
 }

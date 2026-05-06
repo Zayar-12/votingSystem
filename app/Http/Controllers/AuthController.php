@@ -27,6 +27,8 @@ class AuthController extends Controller
 
         Auth::login($user);
 
+        
+
         return redirect()->route('home')->with('success', 'Registration successful!');
     }
 
@@ -38,6 +40,11 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
+
+            $user=Auth::user();
+            if($user->role=='admin' || $user->role=='superadmin'){
+                return redirect()->route('admin.home')->with('success', 'Welcome back!');
+            }
             return redirect()->route('home')->with('success', 'Welcome back!');
         }
 
