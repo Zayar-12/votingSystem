@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
+//normal route
 Route::get('/', [UserController::class,'index'])->name('welcome');
+Route::get('/home',[ CandidateController::class,'index'])->middleware(['auth', 'verified'])->name('home');
+Route::post('/vote',[CandidateController::class,'vote'])->name('vote')->middleware('auth');
 
-
-
+//auth route
 Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
@@ -25,16 +27,27 @@ Route::get('/register', function () {
 Route::post('/register',[AuthController::class,'register'] )->name('register');
 
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+
+//profile route
 Route::get('/profile' ,function(){
     return view('components.profile');
 })->name('profile');
 
 Route::post('/profilePhoto',[UserController::class,'profilePhotoUpload'])->name('ProfilePhoto');
 
-Route::get('/admin/home',[AdminController::class,'index'])->name('admin.home');
+//admin route
+Route::get('/admin/home',[AdminController::class,'index'])->middleware('auth')->name('admin.home');
+Route::get('/admin/addCandidate',function(){
+    return view('admin.components.AddCandidate');
+})->middleware('auth')->name('addCandidate');
+Route::post('/candidateStore',[AdminController::class,'store'])->middleware('auth')->name('candidate.store');
+Route::post('/toggleStartStop',[AdminController::class,'toggleStartStop'])->middleware('auth')->name('toggleStartStop');
+Route::put('/candidateUpdate/{candidate}',[AdminController::class,'update'])->middleware('auth')->name('candidate.update');
+Route::delete('/candidateDelete/{candidate}',[AdminController::class,'destroy'])->middleware('auth')->name('candidate.delete');
+Route::get('/cadidateDetail/{candidate}',[AdminController::class,'detail'])->middleware('auth')->name('candidateDetail');
 
-Route::post('/toggleStartStop',[AdminController::class,'toggleStartStop'])->name('toggleStartStop');
 
+//verify email route
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -50,8 +63,5 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
     return redirect('/home'); 
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-
-Route::get('/home',[ CandidateController::class,'index'])->middleware(['auth', 'verified'])->name('home');
-
-Route::post('/vote',[CandidateController::class,'vote'])->name('vote')->middleware('auth');
+//detail route
 Route::get('/showCandidate/{candidate}',[CandidateController::class,'show'])->name('candidate.show');

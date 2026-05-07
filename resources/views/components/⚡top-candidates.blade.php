@@ -17,7 +17,7 @@ new class extends Component
 }
 ?>
 
-<div>
+<div wire:poll>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         @foreach($topCandidates as $index => $candidate)
         @php

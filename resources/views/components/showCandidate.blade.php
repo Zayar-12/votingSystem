@@ -16,6 +16,11 @@
      <div style="margin-top: 20px;">
 @csrf
         <h1>Full Profile of {{ $candidate->name }}</h1>
+         <img 
+        src="{{ $candidate->imagepath ? asset($candidate->imagepath) : asset('images/default-profile.jpg') }}" 
+        alt="{{ $candidate->name }}"
+        class="w-full h-64 object-cover rounded-2xl border-4 border-gray-50 shadow-md"
+    >
         <p><strong>Age:</strong> {{ $candidate->age }}</p>
         <p><strong>Height:</strong> {{ $candidate->height }}</p>
         <p><strong>Hobby:</strong> {{ $candidate->hobby }}</p>

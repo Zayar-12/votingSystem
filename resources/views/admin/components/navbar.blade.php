@@ -13,10 +13,7 @@
                 <span class="ml-3">Dashboard</span>
             </a>
             
-            <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition">
-                <span class="ml-3">Candidates</span>
-            </a>
-
+           
             <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition">
                 <span class="ml-3">Voters List</span>
             </a>

@@ -11,11 +11,13 @@ class Candidate extends Model
     //
     use HasFactory;
    protected $fillable = [
-    'name',
-    'email',
-    'password',
-    'candidates_id', // ထပ်ဖြည့်ပါ
-    'imgpath',       // ထပ်ဖြည့်ပါ
+   'name', 
+        'age', 
+        'nation', 
+        'height', 
+        'hobby', 
+        'bio', 
+        'imagepath'      
 ];
 
     public function users(){
