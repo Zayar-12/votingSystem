@@ -14,12 +14,15 @@
             </a>
             
            
-            <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition">
+            <a href="{{route('voterList')}}" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition">
                 <span class="ml-3">Voters List</span>
             </a>
+             <a href="{{route('candidateList')}}" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition">
+                <span class="ml-3">Candidate List</span>
+            </a>
 
-            <a href="#" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition">
-                <span class="ml-3">Results</span>
+            <a href="{{route('voteHistroy')}}" class="flex items-center p-3 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition">
+                <span class="ml-3">Vote History</span>
             </a>
         </nav>
 

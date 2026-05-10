@@ -40,6 +40,9 @@ Route::get('/admin/home',[AdminController::class,'index'])->middleware('auth')->
 Route::get('/admin/addCandidate',function(){
     return view('admin.components.AddCandidate');
 })->middleware('auth')->name('addCandidate');
+Route::get('/voterList',[AdminController::class,'voterList'])->middleware('auth')->name('voterList');
+Route::get('/candidateList',[AdminController::class,'candidateList'])->middleware('auth')->name('candidateList');
+Route::get('/voteHistroy',[AdminController::class,'voteHistory'])->middleware('auth')->name('voteHistroy');
 Route::post('/candidateStore',[AdminController::class,'store'])->middleware('auth')->name('candidate.store');
 Route::post('/toggleStartStop',[AdminController::class,'toggleStartStop'])->middleware('auth')->name('toggleStartStop');
 Route::put('/candidateUpdate/{candidate}',[AdminController::class,'update'])->middleware('auth')->name('candidate.update');

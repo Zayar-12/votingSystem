@@ -3,7 +3,7 @@
 @section('title', 'Admin Dashboard')
 @section('admin_content')
 <div class="p-6 space-y-6">
-    <!-- Header with Start/Stop Buttons -->
+  
     <div class="flex flex-col md:flex-row md:items-center justify-between bg-white p-6 rounded-xl shadow-sm border border-gray-100 gap-4">
         <div>
             <h1 class="text-2xl font-bold text-gray-800">Voting Control Panel</h1>
@@ -30,9 +30,9 @@
         </div>
     </div>
 
-    <!-- Leaderboard (Top 3) -->
+
   <livewire:top-candidates/>
-  <livewire:candidates-list/>
+
 
 </div>
 @endsection

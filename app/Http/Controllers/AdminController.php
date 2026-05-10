@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Candidate;
 use App\Models\settings;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -112,6 +113,20 @@ class AdminController extends Controller
 public function destroy(Candidate $candidate){
     $candidate->delete();
  return redirect()->route('admin.home')->with('success', 'Candidate deleted successfully!');
+}
+
+
+public function voterList(){
+    return view('admin.components.voterList');
+}
+
+
+public function candidateList(){
+    return view('admin.components.candidateList');
+}
+
+public function voteHistory(){
+    return view('admin.components.votingHistory');
 }
 
 }
