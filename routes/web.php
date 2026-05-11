@@ -37,6 +37,7 @@ Route::post('/profilePhoto',[UserController::class,'profilePhotoUpload'])->name(
 
 //admin route
 Route::get('/admin/home',[AdminController::class,'index'])->middleware('auth')->name('admin.home');
+Route::post('/declareWinner',[AdminController::class,'Winner'])->middleware('auth')->name('declareWinner');
 Route::get('/admin/addCandidate',function(){
     return view('admin.components.AddCandidate');
 })->middleware('auth')->name('addCandidate');

@@ -129,4 +129,13 @@ public function voteHistory(){
     return view('admin.components.votingHistory');
 }
 
+public function Winner(){
+
+$winner=Candidate::withCount('users')->orderBy('users_count','desc')->first();
+if($winner){
+    
+$winner->update(['winner'=>true]);
+}
+
+return redirect()->back()->with('success', 'Winner is declared successfully!');}
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text("bio");
             $table->string("hobby");
             $table->string("imagepath");
+            $table->boolean("winner")->default(false);
             $table->timestamps();
         });
     }

@@ -16,11 +16,33 @@
         @endif
 </head>
 <body>
-    
+    <section role="region" aria-label="Notifications" id="sonner-toaster"></section>
     <x-nav/>
     <main>
         @yield('content')
     </main>
+   
+  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'အောင်မြင်သည်',
+            text: "{{ session('success') }}",
+            timer: 3000
+        });
+    @endif
+
+    @if($errors->any())
+        Swal.fire({
+            icon: 'error',
+            title: 'မှားယွင်းနေပါသည်',
+            text: "{{ $errors->first() }}",
+            confirmButtonColor: '#f53003'
+        });
+    @endif
+</script>
 </body>
-</body>
+
 </html>

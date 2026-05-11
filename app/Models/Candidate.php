@@ -17,7 +17,8 @@ class Candidate extends Model
         'height', 
         'hobby', 
         'bio', 
-        'imagepath'      
+        'imagepath',
+        'winner'    
 ];
 
     public function users(){

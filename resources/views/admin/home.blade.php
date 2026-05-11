@@ -14,7 +14,10 @@
             </p>
         </div>
         <div class="flex gap-3">
-            <button class="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition shadow-md">Declare Winner</button>
+           <form action="{{route('declareWinner')}}" method="POST">
+            @csrf
+             <button class="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition shadow-md" onclick="return confirm('Are you Sure to Declare the winner?')">Declare Winner</button>
+           </form>
             <form action="{{ route('toggleStartStop') }}" method="POST">
                 @csrf
                 @if($is_voting_open)
